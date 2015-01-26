@@ -1,0 +1,12 @@
+require(quantmod)
+require(ggplot2)
+require(xlsx)
+TB<-getSymbols("1310.TW",from = "2012-01-01",to = Sys.Date(),src = "yahoo",auto.assign=FALSE)
+TWII<-getSymbols("^TWII",from = "2012-01-01",to = Sys.Date(),src = "yahoo",auto.assign=FALSE)
+length(TB)
+length(TWII)
+cltb<-Cl(TB)
+cltw<-Cl(TWII)
+names(TB)
+length(TB[time(TW),])
+
