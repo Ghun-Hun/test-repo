@@ -15,7 +15,11 @@ tablehead <- xpathSApply(get_url_parse, "//tr[@class='tb2']/td", xmlValue)
  
 #將擷取到的關鍵字轉成XP系統內建編碼 CP950
 #特別的是經過xpathSApply解析出來的文字編碼，似乎會自動從BIG5變為UTF-8?
+<<<<<<< HEAD
 #tablehead<-iconv(tablehead,"UTF-8","CP950")
+=======
+tablehead<-iconv(tablehead,"UTF-8","CP950")
+>>>>>>> c4189a44dde609ac348cbb89068558c632d1bf67
 
 #將擷取到的關鍵字轉成容易閱讀的矩陣格式
 table <- matrix(tablehead, ncol = 6, byrow = T)
