@@ -1,15 +1,15 @@
 require(quantmod)
 require(ggplot2)
-gs="1310.TW"
+gs="2891.TW"
 getSymbols(gs)
 TB<-get(gs)
-chartSeries(TB,subset='2014-12::2015', theme="white", TA="addMACD();addVo();addEMA(n=5)") 
+chartSeries(TB,subset='2014-12::2015', theme="white", TA="addMACD();addEnvelope();addVo();addEMA(n=5);addEMA(n=22)") 
 ncl<-Next(Cl(TB['2014-12::2015']))
 clc<-Cl(TB['2014-12::2015'])
 clv<-Vo(TB['2014-12::2015'])
 Temp<-clc[time(clc),]
 for (i in 1:length(clc)){
-  Temp[i] <- (ncl[i]-clc[i])*clv[i]
+  Temp[i] <- (clc[i]-ncl[i])*clv[i]
 }
 temp=clc[time(clc),]
 temp[1]<-0
